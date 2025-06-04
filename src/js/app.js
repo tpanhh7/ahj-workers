@@ -15,14 +15,9 @@ export default class App {
 
   registerServiceWorker() {
     if ("serviceWorker" in navigator) {
-      navigator.serviceWorker
-        .register("/service-worker.js")
-        .then((registration) => {
-          console.log("SW registered");
-        })
-        .catch((err) => {
-          console.log("SW registration failed: ", err);
-        });
+      navigator.serviceWorker.register("/sw.js").then((registration) => {
+        console.log("SW registered:", registration);
+      });
     }
   }
 

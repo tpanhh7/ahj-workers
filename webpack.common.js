@@ -33,10 +33,7 @@ module.exports = {
       template: "./src/index.html",
     }),
     new CopyPlugin({
-      patterns: [
-        { from: "src/css", to: "css" },
-        { from: "src/js/service-worker.js", to: "service-worker.js" },
-      ],
+      patterns: [{ from: "src/css", to: "css" }],
     }),
   ],
 };

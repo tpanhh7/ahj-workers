@@ -19,6 +19,8 @@ module.exports = merge(common, {
     new GenerateSW({
       clientsClaim: true,
       skipWaiting: true,
+      swDest: "sw.js",
+      exclude: [/service-worker\.js$/],
     }),
   ],
 });
