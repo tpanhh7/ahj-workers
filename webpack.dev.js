@@ -9,14 +9,7 @@ module.exports = merge(common, {
     hot: true,
     historyApiFallback: true,
     liveReload: false,
-    watchFiles: false,
+    watchFiles: [],
     open: true,
-    proxy: {
-      '/api': {
-        target: 'https://ahj-workers-rrqn.onrender.com',
-        pathRewrite: { '^/api': '' },
-        changeOrigin: true
-      }
-    }
   },
 });

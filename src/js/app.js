@@ -48,7 +48,14 @@ export default class App {
     this.showLoading();
 
     try {
-      const response = await fetch("/api/news");
+      const response = await fetch("https://ahj-workers-rrqn.onrender.com/news");
+      if (!response.ok) throw new Error('Network response was not ok');
+
+      const contentType = response.headers.get('content-type');
+      if (!contentType.includes('application/json')) {
+        throw new TypeError("Ожидался JSON, но получили " + contentType);
+      }
+
       const news = await response.json();
       this.showNews(news);
     } catch (error) {
