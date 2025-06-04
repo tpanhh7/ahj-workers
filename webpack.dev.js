@@ -13,7 +13,7 @@ module.exports = merge(common, {
     open: true,
     proxy: {
       '/api': {
-        target: 'http://localhost:3000',
+        target: 'https://ahj-workers-rrqn.onrender.com',
         pathRewrite: { '^/api': '' },
         changeOrigin: true
       }
