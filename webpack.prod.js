@@ -20,6 +20,7 @@ module.exports = merge(common, {
       clientsClaim: true,
       skipWaiting: true,
       swDest: "sw.js",
+      include: [/\.html$/, /\.js$/, /\.css$/],
       exclude: [/service-worker\.js$/],
     }),
   ],
