@@ -11,8 +11,9 @@ app.use(cors({
     'https://tpanhh7.github.io',
     'http://localhost:8080'
   ],
-  allowMethods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowHeaders: ['Content-Type']
+  allowMethods: ['GET'],
+  exposeHeaders: ['Content-Length'],
+  maxAge: 3600
 }));
 
 app.use(
@@ -22,6 +23,7 @@ app.use(
 );
 
 router.get("/news", async (ctx) => {
+  ctx.type = 'application/json';
   ctx.body = [
     {
       id: 1,

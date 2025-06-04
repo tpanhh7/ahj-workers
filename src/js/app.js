@@ -15,7 +15,7 @@ export default class App {
 
   registerServiceWorker() {
     if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("/sw.js").then((registration) => {
+      navigator.serviceWorker.register("/service-worker.js").then((registration) => {
         console.log("SW registered:", registration);
       });
     }
@@ -48,8 +48,15 @@ export default class App {
     this.showLoading();
 
     try {
-      const response = await fetch("https://ahj-workers-rrqn.onrender.com/news");
-      if (!response.ok) throw new Error('Network response was not ok');
+      const response = await fetch('https://ahj-workers-rrqn.onrender.com/news', {
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
 
       const contentType = response.headers.get('content-type');
       if (!contentType.includes('application/json')) {

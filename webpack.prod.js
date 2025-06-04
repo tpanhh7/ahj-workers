@@ -17,11 +17,10 @@ module.exports = merge(common, {
   plugins: [
     new MiniCssExtractPlugin(),
     new GenerateSW({
+      swDest: 'service-worker.js',
       clientsClaim: true,
       skipWaiting: true,
-      swDest: "sw.js",
-      include: [/\.html$/, /\.js$/, /\.css$/],
-      exclude: [/service-worker\.js$/],
+      exclude: [/\.map$/, /^manifest.*\.js$/]
     }),
   ],
 });
