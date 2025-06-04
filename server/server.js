@@ -7,7 +7,10 @@ const app = new Koa();
 const router = new Router();
 
 app.use(cors({
-  origin: 'http://localhost:8080'
+  origin: ['https://tpanhh7.github.io', 'http://localhost:8080'],
+  allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowHeaders: ['Content-Type'],
+  credentials: true
 }));
 
 app.use(
